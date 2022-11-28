@@ -18,6 +18,14 @@ const WeatherMain = () => {
     return "";
   }
 
+  var date = new Date();
+  console.log(date);
+
+  var hours = date.getHours();
+  var minutes = date.getMinutes();
+  var formattedTime = hours + ":" + minutes;
+  console.log(formattedTime);
+
   return (
     <div className={styles.weatherWrap}>
       <div>
