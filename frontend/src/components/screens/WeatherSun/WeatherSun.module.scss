@@ -1,0 +1,30 @@
+.wrap{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.wrapInner{
+    padding: 25px 15px;
+    display: flex;
+    align-items: center
+
+}
+
+.img{
+    width: 64px;
+    height: 64px;
+    
+    margin-right: 15px;
+    path{
+        color: #fff;
+    }
+}
+
+.title{
+    margin-bottom: 8px;
+}
+
+.data{}
