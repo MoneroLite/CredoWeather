@@ -1,30 +1,20 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { weatherContext } from "../../provider/weatherProvider/WeatherProvider";
 import styles from "./WeatherMain.module.scss";
 
 const WeatherMain = () => {
-  useEffect(() => {
-    axios
-      .get(
-        "http://api.openweathermap.org/data/2.5/weather?lang=ru&appid=b5f473f7704a8179247ce0e38148b13f&units=metric&q=Ufa"
-      )
-      .then(({ data }) => {
-        setWeather(data);
-      });
-  }, []);
+  const [weather, isLoading] = useContext(weatherContext);
 
-  const [weather, setWeather] = useState();
-  console.log(weather);
+  // const now = new Date();
+  // const formatter = new Intl.DateTimeFormat("ru-RU", {
+  //   weekday: "long",
+  //   timeZone: "Asia/Tokyo",
+  // });
 
-  const now = new Date();
-  const formatter = new Intl.DateTimeFormat("ru-RU", {
-    weekday: "long",
-    timeZone: "Asia/Tokyo",
-  });
+  // console.log("Intl.DateTimeFormat string: ", formatter.format(now));
 
-  console.log("Intl.DateTimeFormat string: ", formatter.format(now));
-
-  if (!weather) {
+  if (!weather || isLoading) {
     return "";
   }
 

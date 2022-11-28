@@ -1,4 +1,5 @@
 import React from "react";
+import WeatherHumidity from "../screens/WeatherHumidity/WeatherHumidity";
 import WeatherMain from "../screens/WeatherMain/WeatherMain";
 import styles from "./layout.module.scss";
 
@@ -12,7 +13,9 @@ const Layout = () => {
         <div className={styles.weatherWrap}>
           <div className={styles.weatherLeft}>
             <div className={styles.wrapSecondary}>
-              <div className={styles.weatherSecondaryHum}></div>
+              <div className={styles.weatherSecondaryHum}>
+                <WeatherHumidity />
+              </div>
               <div className={styles.weatherSecondarySun}></div>
             </div>
             <div className={styles.weatherFooter}></div>
