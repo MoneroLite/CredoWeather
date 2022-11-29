@@ -1,4 +1,5 @@
 import React from "react";
+import WeatherFooter from "../screens/WeatherFooter/WeatherFooter";
 import WeatherHumidity from "../screens/WeatherHumidity/WeatherHumidity";
 import WeatherMain from "../screens/WeatherMain/WeatherMain";
 import WeatherSun from "../screens/WeatherSun/WeatherSun";
@@ -21,7 +22,9 @@ const Layout = () => {
                 <WeatherSun />
               </div>
             </div>
-            <div className={styles.weatherFooter}></div>
+            <div className={styles.weatherFooter}>
+              <WeatherFooter />
+            </div>
           </div>
           <div className={styles.weatherShedule}></div>
         </div>
