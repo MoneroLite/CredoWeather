@@ -1,0 +1,27 @@
+.text {
+    height: 10px;
+    width: 75px;
+    border-radius: 3px;
+    background: #D2DBE2;
+    animation: loader 1.4s linear infinite;
+}
+
+.icon {
+    width: 55px;
+    height: 55px;
+    background: #D2DBE2;
+    border-radius: 7px;
+    animation: loader 1.4s ease-in-out infinite;
+}
+
+@keyframes loader {
+    0% {
+        background: #D2DBE2;
+    }
+    50% {
+        background: #c2c9cd;
+    }
+    100% {
+        background: #D2DBE2;
+    }
+}
