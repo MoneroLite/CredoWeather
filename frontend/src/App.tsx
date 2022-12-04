@@ -5,7 +5,7 @@ import HomePage from "./pages/HomePage";
 function App() {
   return (
     <WeatherProvider>
-      <HomePage></HomePage>
+      <HomePage />
     </WeatherProvider>
   );
 }
