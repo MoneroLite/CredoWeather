@@ -3,9 +3,14 @@ import { weatherContext } from "../../provider/weatherProvider/WeatherProvider";
 import styles from "./WeatherHumidity.module.scss";
 import Drop from "../../../assets/drop.svg";
 import Cloud from "../../../assets/cloud.svg";
+import WeatherHumiditySkeleton from "./weatherHumiditySkeleton/WeatherHumiditySkeleton";
 
 const WeatherHumidity = () => {
   const [weather, isLoading] = useContext(weatherContext);
+
+  if (isLoading) {
+    return <WeatherHumiditySkeleton />;
+  }
   return (
     <div className={styles.wrap}>
       <div className={styles.wrapInner}>

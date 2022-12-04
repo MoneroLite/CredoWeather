@@ -8,17 +8,17 @@ const WeatherFooterSkeleton = () => {
   return (
     <SkeletonContainer>
       <div className={styles.wrapper}>
-        <div>
-          <SkeletonIcon />
-          <SkeletonText />
+        <div className={styles.inner}>
+          <SkeletonIcon margin=" 0 0 5px 0" />
+          <SkeletonText margin="0" height="10px" />
         </div>
-        <div>
-          <SkeletonIcon />
-          <SkeletonText />
+        <div className={styles.inner}>
+          <SkeletonIcon margin=" 0 0 5px 0" />
+          <SkeletonText margin="0" height="10px" />
         </div>
-        <div>
-          <SkeletonIcon />
-          <SkeletonText />
+        <div className={styles.inner}>
+          <SkeletonIcon margin=" 0 0 5px 0" />
+          <SkeletonText margin="0" height="10px" />
         </div>
       </div>
     </SkeletonContainer>
