@@ -19,13 +19,13 @@ const WeatherMain = () => {
     return <WeatherMainSkeleton />;
   }
 
-  var date = new Date();
-  console.log(date);
-
-  var hours = date.getHours();
-  var minutes = date.getMinutes();
-  var formattedTime = hours + ":" + minutes;
-  console.log(formattedTime);
+  function timeConverter(duration: number) {
+    var date = new Date(duration * 1000);
+    var hours = date.getHours();
+    var minutes = date.getMinutes();
+    var formattedTime = hours + ":" + minutes;
+    return formattedTime;
+  }
 
   return (
     <div className={styles.weatherWrap}>
@@ -42,7 +42,7 @@ const WeatherMain = () => {
         <p className={styles.country}>{weather?.name}</p>
       </div>
       <div>
-        <p className={styles.time}>13:25</p>
+        <p className={styles.time}>{weather && timeConverter(weather?.dt)}</p>
         <p className={styles.description}>{weather?.weather[0].description}</p>
       </div>
     </div>
