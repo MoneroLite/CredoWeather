@@ -3,11 +3,12 @@ import { weatherContext } from "../../provider/weatherProvider/WeatherProvider";
 import styles from "./WeatherSun.module.scss";
 import Sunrise from "../../../assets/sunrise.svg";
 import Sunset from "../../../assets/sunset.svg";
+import WeatherSunSkeleton from "./weatherSunSkeleton/WeatherSunSkeleton";
 
 const WeatherSun = () => {
   const [weather, isLoading] = useContext(weatherContext);
-  if (!weather) {
-    return "";
+  if (isLoading) {
+    return <WeatherSunSkeleton />;
   }
 
   function timeConverter(duration: number) {
@@ -24,14 +25,18 @@ const WeatherSun = () => {
         <img className={styles.img} src={Sunrise} alt="drop" />
         <div>
           <p className={styles.title}>Восход</p>
-          <p className={styles.data}>{timeConverter(weather?.sys.sunrise)}</p>
+          <p className={styles.data}>
+            {weather && timeConverter(weather.sys.sunrise)}
+          </p>
         </div>
       </div>
       <div className={styles.wrapInner}>
         <img className={styles.img} src={Sunset} alt="cloud" />
         <div>
           <p className={styles.title}>Закат</p>
-          <p className={styles.data}>{timeConverter(weather?.sys.sunset)}</p>
+          <p className={styles.data}>
+            {weather && timeConverter(weather.sys.sunset)}
+          </p>
         </div>
       </div>
     </div>

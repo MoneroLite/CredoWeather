@@ -1,0 +1,14 @@
+.wrap{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.wrapInner{
+    padding: 25px 15px;
+    display: flex;
+    align-items: center
+
+}

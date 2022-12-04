@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { weatherContext } from "../../provider/weatherProvider/WeatherProvider";
 import styles from "./WeatherMain.module.scss";
+import WeatherMainSkeleton from "./weatherMainSkeleton/WeatherMainSkeleton";
 
 const WeatherMain = () => {
   const [weather, isLoading] = useContext(weatherContext);
@@ -14,8 +15,8 @@ const WeatherMain = () => {
 
   // console.log("Intl.DateTimeFormat string: ", formatter.format(now));
 
-  if (!weather || isLoading) {
-    return "";
+  if (isLoading) {
+    return <WeatherMainSkeleton />;
   }
 
   var date = new Date();
@@ -31,18 +32,18 @@ const WeatherMain = () => {
       <div>
         <img
           className={styles.weatherIcon}
-          src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
+          src={`https://openweathermap.org/img/wn/${weather?.weather[0].icon}@2x.png`}
           alt="icon"
         />
-        <p className={styles.degree}>{weather.main.temp}&deg;</p>
+        <p className={styles.degree}>{weather?.main.temp}&deg;</p>
         <p className={styles.feelDegree}>
-          ощущается как {weather.main.feels_like}&deg;
+          ощущается как {weather?.main.feels_like}&deg;
         </p>
-        <p className={styles.country}>{weather.name}</p>
+        <p className={styles.country}>{weather?.name}</p>
       </div>
       <div>
         <p className={styles.time}>13:25</p>
-        <p className={styles.description}>{weather.weather[0].description}</p>
+        <p className={styles.description}>{weather?.weather[0].description}</p>
       </div>
     </div>
   );
