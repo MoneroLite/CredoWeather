@@ -3,3 +3,10 @@
     justify-content: space-around;
     padding: 15px 20px;
 }
+
+.itemWrap{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
