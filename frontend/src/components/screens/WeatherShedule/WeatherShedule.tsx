@@ -69,9 +69,19 @@ const WeatherShedule = () => {
   console.log(forecast);
 
   return (
-    <div>
+    <div className={styles.weatherWrap}>
       {forecast?.list.map((item) => (
-        <p>{item.dt_txt}</p>
+        <div className={styles.weatherCard}>
+          <img
+            src={`https://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png`}
+            alt=""
+          />
+          <p>{item.weather[0].description}</p>
+          <p>{item.main.temp}</p>
+          <p>{item.main.humidity}</p>
+          <p>{item.clouds?.all}</p>
+          <p>{item.dt_txt}</p>
+        </div>
       ))}
     </div>
   );
