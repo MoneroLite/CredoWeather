@@ -35,7 +35,7 @@ interface IWeatherListMain {
   temp_min: number;
 }
 interface IWeatherList {
-  clouds?: {};
+  clouds?: { all: string };
   dt: number;
   dt_txt: string;
   main: IWeatherListMain;
@@ -71,16 +71,16 @@ const WeatherShedule = () => {
   return (
     <div className={styles.weatherWrap}>
       {forecast?.list.map((item) => (
-        <div className={styles.weatherCard}>
+        <div key={item.dt} className={styles.weatherCard}>
+          <p>{item.dt_txt}</p>
           <img
             src={`https://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png`}
             alt=""
           />
           <p>{item.weather[0].description}</p>
-          <p>{item.main.temp}</p>
-          <p>{item.main.humidity}</p>
-          <p>{item.clouds?.all}</p>
-          <p>{item.dt_txt}</p>
+          <p>температура: {item.main.temp}&deg;</p>
+          <p>влажность: {item.main.humidity}%</p>
+          <p>облачность: {item.clouds?.all}%</p>
         </div>
       ))}
     </div>
